@@ -1,4 +1,5 @@
 package com.pluralsight;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,10 +8,8 @@ public class Main {
     private static Book[] library = getPopulatedLibrary();
 
     public static void main(String[] args) {
-
-
-
         ShowScreenHome();
+        ShowScreenAvailableBooks();
 
     }
 
@@ -44,12 +43,29 @@ public class Main {
 
     }
 
-    private  static void ShowScreenAvailableBooks(){
-        System.out.println(".......todo available books menu here");
+    private  static void ShowScreenAvailableBooks() {
+        System.out.println(".......todo available books menu here:");
+        System.out.println("\nAvailable Books");
+
+        boolean availbooks = false;
+        for (Book book : library) {
+            if (!book.isCheckedOut()) {
+                System.out.println(" ID: " + book.getId() + " | ISBN: " + book.getIsbn() + " | Title: " + book.getTitle());
+                availbooks = true;
+            }
+        }
+
+        if (!availbooks){
+            System.out.println("No books.\n");
+            return;
+        }
     }
 
     public static void ShowScreenCheckedOutBooks(){
         System.out.println("...........too checked out books here");
+        System.out.println("Checked out books:");
+
+        boolean checkedOutBooks = false;
     }
 
 
@@ -57,7 +73,7 @@ public class Main {
     private static Book[] getPopulatedLibrary() {
 
         Book[] Library = new Book[20];
-//book names id and isbn
+        //book names id and isbn
         Library[0] = new Book(1, "9780061120084", "To Kill a Mockingbird");
         Library[1] = new Book(2, "9780451524935", "1984");
         Library[2] = new Book(3, "9780743273565", "The Great Gatsby");
