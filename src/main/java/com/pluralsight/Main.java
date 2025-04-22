@@ -1,5 +1,4 @@
 package com.pluralsight;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
         ShowScreenHome();
         ShowScreenAvailableBooks();
-
     }
 
     private static void ShowScreenHome(){
@@ -81,6 +79,15 @@ public class Main {
         if (!checkedOutBooks) {
             System.out.println("No books are currently checked out.\n");
             return;
+        }
+
+        System.out.println("\nEnter 'C' to check in a book or 'X' to return to the home screen: ");
+        String CorX = scanner.nextLine().trim().toLowerCase();
+
+        if (CorX.equals("C")){
+            System.out.println("Enter the ID of the book to check IN: ");
+            int id = scanner.nextInt();
+            scanner.nextLine();
         }
     }
 
