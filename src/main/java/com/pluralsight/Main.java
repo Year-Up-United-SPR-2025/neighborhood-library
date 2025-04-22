@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-   private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
     private static Book[] library = getPopulatedLibrary();
 
     public static void main(String[] args) {
@@ -11,9 +11,9 @@ public class Main {
         ShowScreenAvailableBooks();
     }
 
-    private static void ShowScreenHome(){
+    private static void ShowScreenHome() {
 
-        String  homeScreenPrompt = "Welcome to the library\n" +
+        String homeScreenPrompt = "Welcome to the library\n" +
                 "Please select an option from the following\n" +
                 " 1- Show Available Books\n  " +
                 "  2 - Show Checked Out Books\n  " +
@@ -26,22 +26,20 @@ public class Main {
             System.out.print(homeScreenPrompt);
             option = scanner.nextInt();
             scanner.nextLine();
-            if (option == 1){
+            if (option == 1) {
                 ShowScreenAvailableBooks();
             } else if (option == 2) {
                 ShowScreenCheckedOutBooks();
-            }
-            else if (option ==  0){
+            } else if (option == 0) {
                 System.out.println("Exiting the library have a nice day");
-            }
-            else {
+            } else {
                 System.out.println("Not a valid option please try again");
             }
         } while (option != 0);
 
     }
 
-    private  static void ShowScreenAvailableBooks() {
+    private static void ShowScreenAvailableBooks() {
         System.out.println("\nAvailable Books:");
 
         boolean availbooks = false;
@@ -52,7 +50,7 @@ public class Main {
             }
         }
 
-        if (!availbooks){
+        if (!availbooks) {
             System.out.println("No books.\n");
             return;
         }
@@ -81,12 +79,6 @@ public class Main {
 
         System.out.println("\nEnter 'C' to check in a book or 'X' to return to the home screen: ");
         String CorX = scanner.nextLine().trim().toLowerCase();
-
-        if (CorX.equals("C")){
-            System.out.println("Enter the ID of the book to check IN: ");
-            int id = scanner.nextInt();
-            scanner.nextLine();
-        }
     }
 
 
