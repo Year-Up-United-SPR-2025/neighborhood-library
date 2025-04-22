@@ -42,7 +42,6 @@ public class Main {
     }
 
     private  static void ShowScreenAvailableBooks() {
-        System.out.println(".......todo available books menu here:");
         System.out.println("\nAvailable Books:");
 
         boolean availbooks = false;
@@ -66,7 +65,6 @@ public class Main {
     }
 
     public static void ShowScreenCheckedOutBooks(){
-        System.out.println("...........too checked out books here");
         System.out.println("\nChecked out books:");
 
         boolean checkedOutBooks = false;
