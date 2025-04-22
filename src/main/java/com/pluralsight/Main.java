@@ -36,6 +36,7 @@ public class Main {
                 System.out.println("Not a valid option please try again");
             }
         } while (option != 0);
+        System.exit(0);
 
     }
 
@@ -51,7 +52,7 @@ public class Main {
         }
 
         if (!availbooks) {
-            System.out.println("No books.\n");
+            System.out.println("No books are currently checked out.\n");
             return;
         }
 
@@ -60,6 +61,7 @@ public class Main {
         scanner.nextLine();
 
         if (id == 0) return;
+
     }
 
     public static void ShowScreenCheckedOutBooks(){
