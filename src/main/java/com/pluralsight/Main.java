@@ -45,7 +45,7 @@ public class Main {
 
     private  static void ShowScreenAvailableBooks() {
         System.out.println(".......todo available books menu here:");
-        System.out.println("\nAvailable Books");
+        System.out.println("\nAvailable Books:");
 
         boolean availbooks = false;
         for (Book book : library) {
@@ -59,13 +59,29 @@ public class Main {
             System.out.println("No books.\n");
             return;
         }
+
+        System.out.println("\nEnter the Id of the book you want to check out, or press 0 to go back: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        if (id == 0) return;
     }
 
     public static void ShowScreenCheckedOutBooks(){
         System.out.println("...........too checked out books here");
-        System.out.println("Checked out books:");
+        System.out.println("\nChecked out books:");
 
         boolean checkedOutBooks = false;
+        for (Book book : library) {
+            if (book.isCheckedOut()) {
+                System.out.println(" ID: " + book.getId() + " | ISBN: " + book.getIsbn() + " | Title: " + book.getTitle());
+                checkedOutBooks = true;
+            }
+        }
+        if (!checkedOutBooks) {
+            System.out.println("No books are currently checked out.\n");
+            return;
+        }
     }
 
 
