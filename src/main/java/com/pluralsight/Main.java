@@ -1,5 +1,4 @@
 package com.pluralsight;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -56,9 +55,9 @@ public class Main {
 
 
     private static Book[] getPopulatedLibrary() {
-        //book names id and isbn
-        Book[] Library = new Book[20];
 
+        Book[] Library = new Book[20];
+//book names id and isbn
         Library[0] = new Book(1, "9780061120084", "To Kill a Mockingbird");
         Library[1] = new Book(2, "9780451524935", "1984");
         Library[2] = new Book(3, "9780743273565", "The Great Gatsby");
