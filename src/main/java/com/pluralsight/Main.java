@@ -74,7 +74,7 @@ public class Main {
             System.out.print("Enter your name to check out the book: ");
             String name = scanner.nextLine();
             selectedBook.checkOut(name);
-            System.out.println("Book \"" + selectedBook.getTitle() + "\" checked out to " + name + ".\n");
+            System.out.println("Book \"" + selectedBook.getTitle() + "\" has been checked out\n");
         } else {
             System.out.println("Invalid book ID or the book is already checked out.\n");
         }
