@@ -1,4 +1,5 @@
 package com.pluralsight;
+
 import java.util.Scanner;
 
 public class Main {
@@ -81,7 +82,7 @@ public class Main {
 
     }
 
-    private static void ShowScreenCheckedOutBooks(){
+    private static void ShowScreenCheckedOutBooks() {
         System.out.println("\nChecked out books:");
 
         boolean checkedOutBooks = false;
