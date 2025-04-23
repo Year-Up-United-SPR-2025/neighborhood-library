@@ -5,10 +5,10 @@ public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
     private static Book[] library = getPopulatedLibrary();
+    private static Book[] books;
 
     public static void main(String[] args) {
         ShowScreenHome();
-        ShowScreenAvailableBooks();
     }
 
     private static void ShowScreenHome() {
@@ -62,9 +62,26 @@ public class Main {
 
         if (id == 0) return;
 
+        Book selectedBook = null;
+        for (Book book : library) {
+            if (book.getId() == id && !book.isCheckedOut()) {
+                selectedBook = book;
+                break;
+            }
+        }
+
+        if (selectedBook != null) {
+            System.out.print("Enter your name to check out the book: ");
+            String name = scanner.nextLine();
+            selectedBook.checkOut(name);
+            System.out.println("Book \"" + selectedBook.getTitle() + "\" checked out to " + name + ".\n");
+        } else {
+            System.out.println("Invalid book ID or the book is already checked out.\n");
+        }
+
     }
 
-    public static void ShowScreenCheckedOutBooks(){
+    private static void ShowScreenCheckedOutBooks(){
         System.out.println("\nChecked out books:");
 
         boolean checkedOutBooks = false;
@@ -79,10 +96,28 @@ public class Main {
             return;
         }
 
-        System.out.println("\nEnter 'C' to check in a book or 'X' to return to the home screen: ");
-        String CorX = scanner.nextLine().trim().toLowerCase();
-    }
+        System.out.print("\nEnter 'C' to check in a book or 'X' to return to the home screen: ");
+        String input = scanner.nextLine().trim().toUpperCase();
 
+        if (input.equals("C")) {
+            System.out.print("Enter the ID of the book to check in: ");
+            int checkInId = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            Book bookToCheckIn = null;
+            for (Book book : library) {
+                if (book.getId() == checkInId && book.isCheckedOut()) {
+                    bookToCheckIn = book;
+                    break;
+                }
+            }
+
+            if (bookToCheckIn != null) {
+                bookToCheckIn.checkIn();
+                System.out.println("Book \"" + bookToCheckIn.getTitle() + "\" has been checked in successfully.\n");
+            }
+        }
+    }
 
 
     private static Book[] getPopulatedLibrary() {
